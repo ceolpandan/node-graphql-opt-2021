@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "jshint": "^2.13.1"
-  }
+    "jshint": "^2.13.1",
+    "node-fetch": "^3.0.0"
+  },
+  "type": "module"
 }

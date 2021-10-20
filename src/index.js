@@ -1,4 +1,6 @@
-const express = require('express');
+import {fetchData} from './fetch.js';
+import express from 'express';
+
 const app = express();
 const port = 3000;
 
@@ -13,6 +15,10 @@ app.get('/hello/:name?', (req, res)=>{
         const message = 'Hello ' + req.params.name;
         res.send(message);
     }
+});
+
+app.get('/data', (req, res)=>{
+    fetchData("https://elephant-api.herokuapp.com/elephants").then((data)=>res.send(data));
 });
 
 app.listen(port, ()=>{
