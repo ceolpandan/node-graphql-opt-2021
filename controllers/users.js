@@ -64,4 +64,16 @@ module.exports.updateUser = async (req, res) => {
 };
 
 // Nothing
-module.exports.deleteUser = (req, res) => {};
+module.exports.deleteUser = async (req, res) => {
+  try {
+    const { id } = req.params;
+    await db.User.destroy({
+      where: {
+        id: id,
+      },
+    });
+    res.status(204).send("Succes!");
+  } catch (error) {
+    res.send({ error });
+  }
+};
